@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is used to generate everyday's recipes for myself or somebody others who don't want to rack his brain every day to think of what to eat. It'll choose a random recipe.
 
-Things you may want to cover:
+## Requisites:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Rails
+* PostgreSQL
+* Stimulus
+* Webpack
