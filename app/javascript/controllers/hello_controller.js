@@ -13,6 +13,7 @@ export default class extends Controller {
   static targets = [ "heading" ]
 
   connect() {
+    console.log("hello from StimulusJS")
     this.headingTarget.textContent = 'Hello, Stimulus!'
   }
 
