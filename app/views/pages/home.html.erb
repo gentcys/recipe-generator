@@ -10,7 +10,7 @@
     </div>
     <div class="mb-4">
       <%= f.label :difficulty, "Difficulty", class: "block text-gray-700 text-sm font-bold mb-2" %>
-      <%= f.number_field :name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", min: "0", max: "5", placeholder: "Up to five." %>
+      <%= f.number_field :difficulty, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", min: "0", max: "5", placeholder: "Up to five." %>
     </div>
     <div class="flex items-center justify-between">
       <%= f.submit "Generate a Recipe Randomly", { class: "hover:bg-red-700 text-white font-bold w-full py-2 px-4 rounded bg-red-600 text-center" } %>
