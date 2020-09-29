@@ -1,20 +1,20 @@
 <!--
-  Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
-  Read the documentation to get started: https://tailwindui.com/documentation
--->
-<div class="bg-red-600 p-4">
+    Tailwind UI components require Tailwind CSS v1.8 and the @tailwindcss/ui plugin.
+    Read the documentation to get started: https://tailwindui.com/documentation
+  -->
+<div class="p-4">
   <h5 class="text-4xl">Name: </h5>
-  <span class="block text-red-900 text-justify bg-red-400 px-4 py-2"><%= @recipe.name %></span>
+  <span class="block text-justify px-4 py-2"><%= @recipe.name %></span>
 </div>
-<div class="bg-red-600 p-4">
+<div class="p-4">
   <h6 class="text-4xl">Description: </h6>
-  <span class="block text-red-900 text-justify bg-red-400 px-4 py-2 mt-2"><%= @recipe.description %></span>
+  <span class="block text-justify px-4 py-2 mt-2"><%= @recipe.description %></span>
 </div>
-<div class="bg-red-600 p-4">
+<div class="p-4">
   <h6 class="text-4xl">Time: </h6>
-  <span class="block text-red-900 text-justify bg-red-400 px-4 py-2 mt-2"><%= @recipe.time %> minutes</span>
+  <span class="block text-justify px-4 py-2 mt-2"><%= @recipe.time %> minutes</span>
 </div>
-<div class="bg-red-600 p-4">
+<div class="p-4">
   <h6 class="text-4xl">Difficulty: </h6>
-  <span class="block text-red-900 text-justify bg-red-400 px-4 py-2 mt-2"><%= "⭑" * @recipe.difficulty %></span>
+  <span class="block text-justify px-4 py-2 mt-2"><%= "⭑" * @recipe.difficulty %></span>
 </div>
