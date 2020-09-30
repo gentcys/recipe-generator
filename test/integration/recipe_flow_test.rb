@@ -20,6 +20,6 @@ class RecipeFlowTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     follow_redirect!
     assert_response :success
-    assert_select "h1", "Recipes#show"
+    assert_select "span", "Something"
   end
 end
