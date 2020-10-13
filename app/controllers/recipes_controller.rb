@@ -13,6 +13,7 @@ class RecipesController < ApplicationController
   end
 
   private
+
   def generate_params
     params.require(:recipe).permit(:id, :name, :difficulty)
   end
