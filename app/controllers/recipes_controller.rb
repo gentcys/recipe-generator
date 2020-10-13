@@ -14,7 +14,6 @@ class RecipesController < ApplicationController
 
   private
   def generate_params
-    puts params
     params.require(:recipe).permit(:id, :name, :difficulty)
   end
 end
