@@ -8,6 +8,12 @@ class RecipesController < ApplicationController
     end
   end
 
+  def suggest
+    recipes = Recipe.select(:id, :name).where('name LIKE ?', "%#{params[:name]}%")
+
+    render json: recipes, status: :ok
+  end
+
   def show
     @recipe = Recipe.find(params[:id])
   end
@@ -15,6 +21,10 @@ class RecipesController < ApplicationController
   private
 
   def generate_params
-    params.require(:recipe).permit(:id, :name, :difficulty)
+    params.require(:recipe).permit(:name)
+  end
+
+  def suggest_params
+    params.permit(:name)
   end
 end
