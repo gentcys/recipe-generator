@@ -3,12 +3,9 @@ import { Controller } from "stimulus";
 export default class extends Controller {
   static targets = [ "name", "recipes" ]
 
-  connect() {
-    console.log("search from StimulusJS");
-  }
-
-  suggest() {
+  suggest(event) {
     if (this.nameTarget.value == '') {
+      this.hide();
       return;
     }
 
@@ -16,13 +13,24 @@ export default class extends Controller {
       headers: { accept: 'application/json' }
     }).then((response) => response.json())
       .then(data => {
-        console.log(data);
         var recipesHTML = "";
         Object.values(data).forEach(recipe => {
           recipesHTML += this.recipeTemplate(recipe);
         });
       this.recipesTarget.innerHTML = recipesHTML;
-    });
+      });
+
+    this.show();
+  }
+
+  show() {
+    this.nameTarget.setAttribute('aria-expanded', "true");
+    this.recipesTarget.hidden = false;
+  }
+
+  hide(event) {
+    this.nameTarget.setAttribute('aria-expanded', "false");
+    this.recipesTarget.hidden = true;
   }
 
   recipeTemplate(recipe) {

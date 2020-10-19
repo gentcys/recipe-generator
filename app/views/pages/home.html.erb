@@ -2,18 +2,18 @@
   <div>
     <h1 class="text-5xl text-center text-white mb-10">Recipe Generator</h1>
   </div>
-  <div x-data="{name:''}" data-controller="search" data-search-url="<%= recipes_suggest_path() %>" class="container mx-auto rounded px-8 pb-40">
+  <div data-controller="search" data-search-url="<%= recipes_suggest_path() %>" class="container mx-auto rounded px-8 pb-40">
     <div class="bg-white flex items-center rounded-full shadow-xl">
-      <input x-model="name"
-             data-action="input->search#suggest"
+      <input data-action="input->search#suggest"
              data-target="search.name"
+             aria-expanded="false"
              class="rounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none" id="search" type="text" placeholder="Search">
       <div class="p-4">
       </div>
     </div>
-    <div x-show="name.length" class="mt-1 rounded-md shadow-lg">
+    <div class="mt-1 rounded-md shadow-lg">
       <div class="rounded-md bg-white shadow-xs">
-        <div data-target="search.recipes" class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+        <div data-target="search.recipes" class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu" hidden>
         </div>
       </div>
     </div>
