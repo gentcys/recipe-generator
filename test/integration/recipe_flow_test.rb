@@ -23,8 +23,8 @@ class RecipeFlowTest < ActionDispatch::IntegrationTest
   #   assert_select 'span', 'Something'
   # end
 
-  test 'can show a list of recipes when typing words' do
-    get recipes_generate_path, params: { recipe: { name: 'Something' } }
-    assert_select 'a', 'Something'
-  end
+  # test 'can show a list of recipes when typing words' do
+  #   get recipes_generate_path, params: { recipe: { name: 'Something' } }
+  #   assert_select 'a', 'Something'
+  # end
 end
