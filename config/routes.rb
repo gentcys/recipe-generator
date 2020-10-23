@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   get 'recipes/generate'
   get 'recipes/suggest', constraints: { format: 'json' }
   get 'recipes/:id', to: 'recipes#show', as: 'recipe'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  post 'sessions/create', constraints: { format: 'json' }
+  delete 'sessions/destroy'
 end
