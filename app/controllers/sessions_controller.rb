@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       render json: user, status: :ok
     else
       flash.now[:error] = 'Failed to sign in! Username or password is incorrect.'
-      render json: flash.to_hash, status: :bad_request
+      render json: flash, status: :bad_request
     end
   end
 
