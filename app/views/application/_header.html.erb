@@ -20,8 +20,32 @@
       </a>
     </div>
     <div data-controller="session">
+      <% if signed_in? %>
+      <div data-target="session.userMisc" class="inline-block text-left" hidden>
+        <div data-action="click->session#toggleDropdown" class="rounded-full bg-white h-16 w-16 flex items-center justify-center">
+          <span class="rounded-md shadow-sm text-red-500">
+            <%= current_user.name.split.map(&:first).join %>
+          </span>
+        </div>
+        <div data-target="session.dropdown" class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg" hidden>
+          <div class="rounded-md bg-white shadow-xs">
+            <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+              <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">Account settings</a>
+              <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">Support</a>
+              <a href="#" class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">License</a>
+              <form method="POST" action="#">
+                <button type="submit" class="block w-full text-left px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900" role="menuitem">
+                  Sign out
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% else %>
       <button data-action="click->session#showModal" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-red-500 hover:bg-white mt-4 lg:mt-0">Sign In</button>
       <%= render template: '/sessions/new' %>
+      <% end %>
     </div>
   </div>
 </nav>

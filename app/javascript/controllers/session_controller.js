@@ -1,7 +1,7 @@
 import { Controller } from 'stimulus';
 
 export default class extends Controller {
-  static targets = [ "modal", "username", "password", "alert", "alertMessage" ]
+  static targets = [ "modal", "dropdown", "username", "password", "alert", "alertMessage" ]
 
   showModal() {
     this.modalTarget.classList.add("modal-open");
@@ -13,6 +13,15 @@ export default class extends Controller {
     this.modalTarget.hidden = true;
   }
 
+  toggleDropdown() {
+    console.log("toggleDropdown");
+    if (this.dropdownTarget.hidden) {
+      this.dropdownTarget.hidden = false;
+    } else {
+      this.dropdownTarget.hidden = true;
+    }
+  }
+
   successHandler(event) {
     var detail = event.detail;
     var data = detail[0], status = detail[1], xhr = detail[2];
@@ -20,6 +29,7 @@ export default class extends Controller {
     console.log(data);
 
     this.hideAlert();
+    this.userMiscTarget.hidden = false;
   }
 
   errorHandler(event) {
