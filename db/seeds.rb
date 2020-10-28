@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+10.times do |i|
+  User.find_or_create_by!(username: "fakeuser#{i}") do |user|
+    user.name = "Fake User #{i}"
+    user.email = "fakeuser#{i}@example.com"
+    user.password = "password#{i}"
+    user.password_confirmation = "password#{i}"
+  end
+end
