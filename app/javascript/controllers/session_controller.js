@@ -14,7 +14,6 @@ export default class extends Controller {
   }
 
   toggleDropdown() {
-    console.log("toggleDropdown");
     if (this.dropdownTarget.hidden) {
       this.dropdownTarget.hidden = false;
     } else {
@@ -23,23 +22,16 @@ export default class extends Controller {
   }
 
   successHandler(event) {
-    var detail = event.detail;
-    var data = detail[0], status = detail[1], xhr = detail[2];
-    console.log(detail);
-    console.log(data);
+    const [_data, _status, xhr] = event.detail;
 
-    this.hideAlert();
-    this.userMiscTarget.hidden = false;
+    this.hideModal();
+    this.element.innerHTML = xhr.response;
   }
 
   errorHandler(event) {
-    var detail = event.detail;
-    var data = detail[0], status = detail[1], xhr = detail[2];
-    console.log(data[0][1]);
-    console.log(xhr);
+    const [_data, _status, xhr] = event.detail;
 
-    this.alertMessageTarget.textContent = this.extractErrorMessage(data);
-    console.log(this.alertMessageTarget.textContent);
+    this.alertMessageTarget.textContent = this.extractErrorMessage(_data);
 
     this.showAlert();
   }
