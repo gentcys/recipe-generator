@@ -18,7 +18,7 @@ class UserFlowTest < ActionDispatch::IntegrationTest
   test 'sign in with invalid information' do
     post sessions_create_path, params: { session: { username: '', password: '' } }
     response_json = JSON.parse(@response.body)
-    assert 'Failed to sign in! Username or password is incorrect.', response_json[:error]
+    assert 'Failed to sign in! Username or password is incorrect.', response_json[1]
   end
 
   test 'redirect to user page while sign in successfully' do
