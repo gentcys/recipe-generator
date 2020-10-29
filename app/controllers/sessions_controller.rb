@@ -1,9 +1,10 @@
 class SessionsController < ApplicationController
   def create
     user = User.find_by(username: session_params[:username])
-    if user && user.authenticate(session_params[:password])
+    if user&.authenticate(session_params[:password])
       # Sign user in and return user info.
       sign_in user
+      remember user
       render json: user, status: :ok
     else
       flash.now[:error] = 'Failed to sign in! Username or password is incorrect.'
