@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     if user&.authenticate(session_params[:password])
       # Sign user in and return user info.
       sign_in user
-      remember user
+      session_params[:remember_me] == '1' ? remember(user) : forget(user)
       render json: user, status: :ok
     else
       flash.now[:error] = 'Failed to sign in! Username or password is incorrect.'
@@ -18,6 +18,6 @@ class SessionsController < ApplicationController
   private
 
   def session_params
-    params.require(:session).permit(:username, :password)
+    params.require(:session).permit(:username, :password, :remember_me)
   end
 end
