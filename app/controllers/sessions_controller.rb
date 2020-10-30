@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(username: session_params[:username])
     if user&.authenticate(session_params[:password])
-      # Sign user in and return user info.
       sign_in user
       session_params[:remember_me] == '1' ? remember(user) : forget(user)
       render layout: false
