@@ -4,10 +4,11 @@
   </div>
   <div data-controller="search" data-search-url="<%= recipes_suggest_path() %>" class="container mx-auto rounded px-8 pb-40">
     <div class="bg-white flex items-center rounded-full shadow-xl">
-      <input data-action="input->search#suggest"
+      <input data-action="input->search#suggest change->search#search"
              data-target="search.name"
              aria-expanded="false"
              class="rounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none" id="search" type="text" placeholder="Search">
+      <%= link_to "Suggest", recipes_suggest_path + "?name=", data: { target: "search.suggest", action: "ajax:success->search#successHandler ajax:error->search#errorHandler" }, remote: true, style: "display: none;" %>
       <div class="p-4">
       </div>
     </div>

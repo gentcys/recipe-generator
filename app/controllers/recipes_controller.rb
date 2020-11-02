@@ -9,9 +9,8 @@ class RecipesController < ApplicationController
   end
 
   def suggest
-    recipes = Recipe.select(:id, :name).where('name LIKE ?', "%#{params[:name]}%")
-
-    render json: recipes, status: :ok
+    @recipes = Recipe.select(:id, :name).where('name LIKE ?', "%#{params[:name]}%")
+    render layout: false
   end
 
   def show
