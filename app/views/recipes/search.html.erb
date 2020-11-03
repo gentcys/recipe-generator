@@ -1,0 +1,9 @@
+<div class="bg-red-500 w-screen h-screen">
+  <div class="container mx-auto pt-4 px-64">
+    <div class="flex flex-col bg-white rounded shadow-xll space-y-6 divide-y-2 devide-gray-200">
+      <% @recipes.each do |recipe| %>
+        <div class="my-4 py-4"><%= recipe.name %></div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,10 +1,17 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = [ "name", "suggest", "recipes" ]
+  static targets = [ "name", "suggest", "search", "recipes" ]
 
   search() {
     console.log("search");
+    if (this.nameTarget.value == '') {
+      this.hide();
+      return;
+    }
+
+    const url = this.data.get("url") + "?name=" + this.nameTarget.value;
+    Turbolinks.visit(url);
   }
 
   suggest() {

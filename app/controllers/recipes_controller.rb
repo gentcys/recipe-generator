@@ -13,6 +13,10 @@ class RecipesController < ApplicationController
     render layout: false
   end
 
+  def search
+    @recipes = Recipe.where('name LIKE?', "%#{params[:search]}%")
+  end
+
   def show
     @recipe = Recipe.find(params[:id])
   end
