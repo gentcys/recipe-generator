@@ -26,8 +26,4 @@ class RecipesController < ApplicationController
   def generate_params
     params.require(:recipe).permit(:name)
   end
-
-  def suggest_params
-    params.permit(:name)
-  end
 end
