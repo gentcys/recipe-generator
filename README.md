@@ -16,5 +16,5 @@ This is used to generate everyday's recipes for myself or somebody others who do
 - [x] Search recipes by name
 - [x] Show list of search's result
 - [x] Show detail of a recipe
-- [] Pagination of recipes search's result
-- [] Save search histroy of user who signed in
+- [ ] Pagination of recipes search's result
+- [ ] Save search histroy of user who signed in
