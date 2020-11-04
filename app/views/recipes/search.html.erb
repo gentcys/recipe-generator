@@ -1,8 +1,33 @@
 <div class="bg-red-500 w-screen h-screen">
   <div class="container mx-auto pt-4 px-64">
-    <div class="flex flex-col bg-white rounded shadow-xll space-y-6 divide-y-2 devide-gray-200">
+    <div class="flex flex-col bg-white border-8 rounded divide-y-8 devide-gray-200 shadow-xl">
       <% @recipes.each do |recipe| %>
-        <div class="my-4 py-4"><%= recipe.name %></div>
+        <div class="grid grid-cols-2 p-2 gap-8">
+          <div class="">
+            <div class="">Recipe Name</div>
+            <div class="">
+              <div class="">
+                <%= link_to recipe.name, url_for(recipe) %>
+              </div>
+            </div>
+          </div>
+          <div class="">
+            <div class="">Difficulty</div>
+            <div class="">
+              <% recipe.difficulty.times do %>
+              ★
+              <% end %>
+            </div>
+          </div>
+          <div class="">
+            <div class="">Time</div>
+            <div class=""><%= recipe.time %></div>
+          </div>
+          <div class="">
+            <div class="">Description</div>
+            <p class="truncate"><%= recipe.description %></p>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>
