@@ -1,33 +1,38 @@
 <div class="bg-red-500 w-screen h-screen">
-  <div class="container mx-auto pt-4 px-64">
-    <div class="flex flex-col bg-white border-8 rounded-lg divide-y-8 devide-gray-200 shadow-xl">
+  <div class="container mx-auto divide-y pt-4 px-64">
+    <div class="bg-gray-100 px-4 py-5 border-b rounded-t-lg border-gray-200 sm:px-6">
+      <h3 class="text-lg leading-6 font-medium text-gray-900">
+        Recipes Search Result
+      </h3>
+    </div>
+    <div class="flex flex-col bg-white rounded-b-lg divide-y divide-gray shadow-xl">
       <% @recipes.each do |recipe| %>
-        <div class="grid grid-cols-2 p-2 gap-8">
+      <div class="grid grid-cols-2 p-6 gap-8">
+        <div class="">
+          <div class="text-sm font-medium text-gray-500">Recipe Name</div>
           <div class="">
-            <div class="text-sm font-medium text-gray-500">Recipe Name</div>
             <div class="">
-              <div class="">
-                <%= link_to recipe.name, url_for(recipe) %>
-              </div>
+              <%= link_to recipe.name, url_for(recipe) %>
             </div>
-          </div>
-          <div class="">
-            <div class="text-sm font-medium text-gray-500">Difficulty</div>
-            <div class="">
-              <% recipe.difficulty.times do %>
-              ★
-              <% end %>
-            </div>
-          </div>
-          <div class="">
-            <div class="text-sm font-medium text-gray-500">Time</div>
-            <div class=""><%= recipe.time %> minutes</div>
-          </div>
-          <div class="">
-            <div class="text-sm font-medium text-gray-500">Description</div>
-            <p class="truncate"><%= recipe.description %></p>
           </div>
         </div>
+        <div class="">
+          <div class="text-sm font-medium text-gray-500">Difficulty</div>
+          <div class="">
+            <% recipe.difficulty.times do %>
+            ★
+            <% end %>
+          </div>
+        </div>
+        <div class="">
+          <div class="text-sm font-medium text-gray-500">Time</div>
+          <div class=""><%= recipe.time %> minutes</div>
+        </div>
+        <div class="">
+          <div class="text-sm font-medium text-gray-500">Description</div>
+          <p class="truncate"><%= recipe.description %></p>
+        </div>
+      </div>
       <% end %>
     </div>
   </div>
