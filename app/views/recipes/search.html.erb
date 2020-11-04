@@ -1,10 +1,10 @@
 <div class="bg-red-500 w-screen h-screen">
   <div class="container mx-auto pt-4 px-64">
-    <div class="flex flex-col bg-white border-8 rounded divide-y-8 devide-gray-200 shadow-xl">
+    <div class="flex flex-col bg-white border-8 rounded-lg divide-y-8 devide-gray-200 shadow-xl">
       <% @recipes.each do |recipe| %>
         <div class="grid grid-cols-2 p-2 gap-8">
           <div class="">
-            <div class="">Recipe Name</div>
+            <div class="text-sm font-medium text-gray-500">Recipe Name</div>
             <div class="">
               <div class="">
                 <%= link_to recipe.name, url_for(recipe) %>
@@ -12,7 +12,7 @@
             </div>
           </div>
           <div class="">
-            <div class="">Difficulty</div>
+            <div class="text-sm font-medium text-gray-500">Difficulty</div>
             <div class="">
               <% recipe.difficulty.times do %>
               ★
@@ -20,11 +20,11 @@
             </div>
           </div>
           <div class="">
-            <div class="">Time</div>
-            <div class=""><%= recipe.time %></div>
+            <div class="text-sm font-medium text-gray-500">Time</div>
+            <div class=""><%= recipe.time %> minutes</div>
           </div>
           <div class="">
-            <div class="">Description</div>
+            <div class="text-sm font-medium text-gray-500">Description</div>
             <p class="truncate"><%= recipe.description %></p>
           </div>
         </div>
