@@ -9,12 +9,18 @@ This is used to generate everyday's recipes for myself or somebody others who do
 * Stimulus
 * Webpack
 
-## Features
+## To-Do Lists
 
-- [x] Sign in (`has_secure_password`)
+- [x] Design application's layout
+- [x] Develop an navigation bar
+- [x] Create home page
+- [x] Sign in
 - [x] Sign out
+- [x] Implement user's password by `has_secure_password`
 - [x] Search recipes by name
-- [x] Show list of search's result
-- [x] Show detail of a recipe
+- [x] Show a list of search's result
+- [x] Show the detail of a recipe
 - [ ] Pagination of recipes search's result
-- [ ] Save search histroy of user who signed in
+- [ ] Save search's history of an user who signed in
+- [ ] Develop a page to show user's search history
+- [ ] Polish the page of recipes search's result
