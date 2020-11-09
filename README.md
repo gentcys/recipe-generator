@@ -20,7 +20,7 @@ This is used to generate everyday's recipes for myself or somebody others who do
 - [x] Search recipes by name
 - [x] Show a list of search's result
 - [x] Show the detail of a recipe
-- [ ] Pagination of recipes search's result
+- [x] Pagination of recipes search's result
 - [ ] Save search's history of an user who signed in
 - [ ] Develop a page to show user's search history
 - [ ] Polish the page of recipes search's result
