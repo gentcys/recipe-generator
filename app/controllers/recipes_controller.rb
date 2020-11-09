@@ -9,12 +9,12 @@ class RecipesController < ApplicationController
   end
 
   def suggest
-    @recipes = Recipe.select(:id, :name).where('name LIKE ?', "%#{params[:name]}%")
+    @recipes = Recipe.name_liked(params[:name]).select(:id, :name)
     render layout: false
   end
 
   def search
-    @recipes = Recipe.where('name LIKE?', "%#{params[:name]}%")
+    @recipes = Recipe.name_liked(params[:name]).page(params[:page])
   end
 
   def show
