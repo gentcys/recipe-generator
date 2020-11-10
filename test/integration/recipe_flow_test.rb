@@ -7,24 +7,25 @@ class RecipeFlowTest < ActionDispatch::IntegrationTest
     @recipe_one.save
   end
 
-  # test 'can redirect back to home page if no recipes found' do
-  #   get recipes_generate_path, params: { recipe: { name: 'abcdef', difficulty: 3 } }
-  #   assert_response :redirect
-  #   follow_redirect!
-  #   assert_response :success
-  #   assert_select 'h1', 'Recipe Generator'
-  # end
+  test 'show a list of suggested recipes by keyword asynchronously in a dropdown' do
+    get root_path
+    assert_template 'pages/home'
 
-  # test 'can show recipe when conditions matched' do
-  #   get recipes_generate_path, params: { recipe: { name: 'Something', difficulty: 2 } }
-  #   assert_response :redirect
-  #   follow_redirect!
-  #   assert_response :success
-  #   assert_select 'span', 'Something'
-  # end
+    get recipes_suggest_path + '?name=Some'
 
-  # test 'can show a list of recipes when typing words' do
-  #   get recipes_generate_path, params: { recipe: { name: 'Something' } }
-  #   assert_select 'a', 'Something'
-  # end
+    assert_template 'recipes/suggest'
+    assert_template layout: false
+
+    assert "a[href=#{recipe_path(@recipe_one)}]", @recipe_one.name
+  end
+
+  test 'show serach reault of recipes by keyword in a new page' do
+    get root_path
+    assert_template 'pages/home'
+
+    get recipes_search_path + '?name=Some'
+
+    assert_template 'recipes/search'
+    assert "a[href=#{recipe_path(@recipe_one)}]", @recipe_one.name
+  end
 end
