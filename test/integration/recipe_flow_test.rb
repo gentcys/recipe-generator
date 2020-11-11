@@ -5,6 +5,8 @@ class RecipeFlowTest < ActionDispatch::IntegrationTest
     @recipe_one = Recipe.new(name: 'Something', difficulty: 2,
                              time: 20, description: 'This is a game!')
     @recipe_one.save
+    @user = users(:one)
+    @user.save
   end
 
   test 'show a list of suggested recipes by keyword asynchronously in a dropdown' do
@@ -27,5 +29,16 @@ class RecipeFlowTest < ActionDispatch::IntegrationTest
 
     assert_template 'recipes/search'
     assert "a[href=#{recipe_path(@recipe_one)}]", @recipe_one.name
+  end
+
+  test 'save user search history if one signed in' do
+    get root_path
+    sign_in_as(@user, { password: 'foobar' })
+
+    keyword = 'Some'
+    get recipes_search_path, params: { name: keyword }
+
+    puts @user.search_histories.length
+    assert(@user.search_histories.any? { |search| search.keyword == keyword })
   end
 end

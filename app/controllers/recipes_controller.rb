@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  after_action :save_search_history, only: :search, if: -> { signed_in? }
+
   def generate
     id = Recipe.select(:id).find_by(generate_params)
     if id.nil?
@@ -25,5 +27,9 @@ class RecipesController < ApplicationController
 
   def generate_params
     params.require(:recipe).permit(:name)
+  end
+
+  def save_search_history
+    current_user.search_histories.create(keyword: params[:name])
   end
 end
