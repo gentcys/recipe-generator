@@ -14,6 +14,7 @@ A project for showing up web development skills based on Rails stack.
 - [x] Design application's layout
 - [x] Develop an navigation bar
 - [x] Create home page
+- [ ] Sign up
 - [x] Sign in
 - [x] Sign out
 - [x] Implement user's password by `has_secure_password`
