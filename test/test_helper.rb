@@ -14,7 +14,7 @@ class ActiveSupport::TestCase
     password = options[:password] || 'password'
     remember_me = options[:remember_me] || '1'
     if integration_test?
-      post sessions_create_path, params: { session: { name: 'Example User',
+      post sessions_create_path, params: { session: { username: user.username,
                                                       password: password,
                                                       remember_me: remember_me } }
     else
