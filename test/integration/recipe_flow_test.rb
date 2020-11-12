@@ -38,7 +38,6 @@ class RecipeFlowTest < ActionDispatch::IntegrationTest
     keyword = 'Some'
     get recipes_search_path, params: { name: keyword }
 
-    puts @user.search_histories.length
     assert(@user.search_histories.any? { |search| search.keyword == keyword })
   end
 end
