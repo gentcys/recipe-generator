@@ -22,6 +22,6 @@ A project for showing up web development skills based on Rails stack.
 - [x] Show the detail of a recipe
 - [x] Pagination of recipes search's result
 - [x] Save search's history of an user who signed in
-- [ ] Develop a page to show user's search history
+- [x] Develop a page to show user's search history
 - [ ] Polish the page of recipes search's result
 - [ ] Rename this project
