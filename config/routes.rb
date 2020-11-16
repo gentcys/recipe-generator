@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get 'users/:username/search_histories', to: 'users#search_histories',
                                           as: 'user_search_histories',
                                           constraints: { username: /[%\w.\-]+?/, format: 'html' }
+  resources :users, only: %i[new create]
 end

@@ -19,13 +19,20 @@
         Blog
       </a>
     </div>
-    <div data-controller="session">
-      <% if signed_in? %>
-      <%= render template: '/sessions/create' %>
-      <% else %>
-      <button data-action="click->session#showModal" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-red-500 hover:bg-white mt-4 lg:mt-0">Sign In</button>
-      <%= render template: '/sessions/new' %>
-      <% end %>
+    <div>
+      <div data-controller="session" class="flex space-x-4">
+        <% if signed_in? %>
+        <%= render template: '/sessions/create' %>
+        <% else %>
+        <div data-controller="user" data-action="ajax:success->user#successHandler ajax:error->user#errorHandler">
+          <%= link_to "Sign Up", new_user_path, remote: true, class: 'inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-red-500 hover:bg-white mt-4 lg:mt-0' %>
+          <div data-target="user.modal">
+          </div>
+        </div>
+        <button data-action="click->session#showModal" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-red-500 hover:bg-white mt-4 lg:mt-0">Sign In</button>
+        <%= render template: '/sessions/new' %>
+        <% end %>
+      </div>
     </div>
   </div>
 </nav>
