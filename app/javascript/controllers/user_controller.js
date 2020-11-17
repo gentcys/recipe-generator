@@ -33,21 +33,21 @@ export default class extends Controller {
   }
 
   createSuccess(event) {
+    event.stopPropagation();
     const [_data, _status, xhr] = event.detail;
 
     console.log(this.sessionController);
     console.log(xhr);
     this.element.parentElement.innerHTML = xhr.response;
-    event.preventDefault();
   }
 
   createFail(event) {
+    event.stopPropagation();
     const [_data, _status, xhr] = event.detail;
 
     this.alertTarget.textContent = xhr.response;
 
     this.showAlert();
-    event.preventDefault();
   }
 
   extractErrorMessage(data) {
